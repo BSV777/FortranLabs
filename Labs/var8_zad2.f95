@@ -16,14 +16,46 @@
 !ξ=0.000001
 !Ответ: -1 (b)
 
+real function fact(n)
+    integer, intent(in) :: n
+    integer :: i
+    fact = 1.0
+    do i = 2, n
+    	fact = fact * i
+    enddo
+end function fact
+
 program var8_zad2
+	x = 3.14
+	S = 1
 
+	write (*,*) '---=== Вариант a ===---'
+	
+	e = 0.
+	St = S
 
+	do while(e > 0.000001)			! Выполняется пока условие истинно
 
+		S = S + (-1)**i * x**(i * 2) / fact(i * 2)
+		e = abs(St - S)
 
+		write (*,*) 'S = ', S, ' погрешность = ', e	! Отладочный вывод
+		St = S
+	end do
+	write (*,*) 'Результат S = ', S
 
+	write (*,*) '---=== Вариант b ===---'
 
+	i = 1
+	n = 20
+	S = 1.
+	do
+		S = S + (-1)**i * x**(i * 2) / fact(i * 2)
 
-
-
+		write (*,*) 'i = ', i, 'S = ', S		! Отладочный вывод
+		
+		i = i + 1
+		if (i > n) exit
+	end do
+	write (*,*) 'Результат S = ', S
 end
