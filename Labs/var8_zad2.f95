@@ -26,7 +26,10 @@ real function fact(n)
 end function fact
 
 program var8_zad2
-	x = 3.14
+	
+implicit none								! Запрет необъявленных переменных.
+
+	x = 3.141592
 	S = 1.
 
 	write (*,*) '---=== Вариант a ===---'

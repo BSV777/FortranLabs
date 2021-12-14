@@ -10,16 +10,35 @@
 !положительным элементом является число 6). Вывести измененный массив в том
 !же виде что и исходный, но со следующей строки.
 
-program var8_zad3
+Program Prg34
 
+integer, allocatable, dimension(:)::mas !
+integer n,i,a
 
+Print *, 'Введите кол-во элементов'
+read *, n 
+Print *, 'Введите массив из ',n,'элементов'
+allocate (mas(n)) 
+do i=1, n
+    read *, mas(i)
+end do
+Print *, 'Вывод в одну строку'
+write(,)(mas(i),i=1,n)
+Print *, 'Заменить все отрицательные элементы на первый положительный'
+a=-1
+do i=1,n
+    if (mas(i) .GT. 0. ) then 
+        a=mas(i) 
+        EXIT
+    endif    
+enddo
+write(,) a
+do i=1,n
+    if (mas(i) .LT. 0. ) then 
+        mas(i)=a
+    endif    
+enddo
+Print *, 'Вывести в одну строку измененный массив'
+write(,)(mas(i),i=1,n)
 
-
-
-
-
-
-
-
-
-end
+End Program Prg34
